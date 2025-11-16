@@ -1,7 +1,7 @@
 export default function Clients() {
   const clients = [
-    { name: 'TED', logo: '/icon/ted.svg' },
     { name: 'UGM', logo: '/icon/UGM.png' },
+    { name: 'TED', logo: '/icon/ted.svg' },
     { name: 'Kementrian LH', logo: '/icon/kemenlh.png' },
     { name: 'RDK', logo: '/icon/rdk.png' },
   ]

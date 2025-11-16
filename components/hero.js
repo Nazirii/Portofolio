@@ -17,7 +17,7 @@ export default function Hero() {
             </div>
             
             <p className="text-gray-400 text-lg leading-relaxed lg:max-w-xs">
-              A freelancer who provides services for digital programming and design content needs, for all businesses with more than 10 years of experience
+              A motivated student driven by curiosity and a strong passion for programming, always eager to learn, build, and grow.
             </p>
 
             {/* Student Info */}
@@ -40,35 +40,33 @@ export default function Hero() {
         
           </div>
 
-          <div className=" h-96 md:h-full absolute left-[33%] bottom-20 z-20">
+          <div className=" h-96 md:h-full absolute left-[33%] bottom-20 z-20 group">
             <img 
               src="\images\NAZIRI.png"
               alt="adib naziri"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-lg transition-opacity duration-500 group-hover:opacity-30 cursor-pointer"
             />
           </div>
 
           {/* Right Side Content */}
-          <div className="hidden lg:block absolute right-65 top-20 z-30 space-y-4 max-w-[17rem]">
+          <div className="hidden lg:block absolute right-65 top-20 z-10 space-y-4 max-w-[17rem]">
             <p className="text-gray-400 text-sm font-semibold">Services</p>
             <h2 className="text-xl font-semibold text-white leading-8 tracking-wide">
-              Let&apos;s build quality products in programming and design with my services
+              Let&apos;s build quality products in programming  with my services
             </h2>
             <a href="#services" className="inline-flex items-center gap-2 text-yellow-400 font-semibold hover:gap-3 transition-all">
               show more <span>→</span>
             </a>
-            <div className="flex gap-4 pt-4">
-              <a href="#" className="w-12 h-12 rounded-full bg-[#3a3a4a] flex items-center justify-center text-yellow-400 hover:bg-[#4a4a5a] transition">
-                f
-              </a>
-              <a href="#" className="w-12 h-12 rounded-full bg-[#3a3a4a] flex items-center justify-center text-yellow-400 hover:bg-[#4a4a5a] transition">
-                🐦
-              </a>
-              <a href="#" className="w-12 h-12 rounded-full bg-[#3a3a4a] flex items-center justify-center text-yellow-400 hover:bg-[#4a4a5a] transition">
-                📷
-              </a>
-              <a href="#" className="w-12 h-12 rounded-full bg-[#3a3a4a] flex items-center justify-center text-yellow-400 hover:bg-[#4a4a5a] transition">
-                📌
+            <div className="pt-4">
+              <a 
+                href="/cv/Adib_Naziri_CV.pdf" 
+                download
+                className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-gray-900 rounded-lg hover:bg-yellow-500 transition font-semibold "
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download CV
               </a>
             </div>
           </div>

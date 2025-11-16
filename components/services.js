@@ -1,8 +1,52 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 export default function Services() {
+  const [counts, setCounts] = useState([0, 0, 0, 0])
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true)
+          animateCounters()
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [hasAnimated])
+
+  const animateCounters = () => {
+    const targets = [4, 2, 1]
+    const duration = 2000
+    const steps = 60
+    const increment = targets.map(target => target / steps)
+
+    let currentStep = 0
+    const timer = setInterval(() => {
+      currentStep++
+      setCounts(prev => 
+        prev.map((_, index) => 
+          Math.min(Math.floor(increment[index] * currentStep), targets[index])
+        )
+      )
+
+      if (currentStep >= steps) {
+        clearInterval(timer)
+        setCounts(targets)
+      }
+    }, duration / steps)
+  }
   const services = [
     {
       image: '/icon/fe.png',
@@ -27,59 +71,69 @@ export default function Services() {
     {
       image: '/images/game.jpg',
       title: 'Game Development',
-      projects: '24 Project'
+      projects: '1 Project'
     }
   ]
 
   const stats = [
-    { value: '250+', label: 'Project Completed' },
-    { value: '100+', label: 'Community Network' },
-    { value: '30+', label: 'Contract Remote' },
-    { value: '10+', label: 'Years Experience' }
+    { label: 'Project Completed' },
+    { label: 'Project Ongoing' },
+    { label: 'Large-Scale Government Website Project' },
+   
   ]
 
   return (
-    <section id="services" className="py-20 bg-[#272833]">
+    <section ref={sectionRef} id="services" className="py-12 bg-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Side */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-4">
-                What Can I Do For<br />Your Needs
-              </h2>
-              <p className="text-gray-400 text-sm max-w-md">
-                It is easier to entrust the work to the experts because they are able to provide the best results with reliable quality
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <div key={index}>
-                  <div className="text-3xl font-bold text-yellow-400">{stat.value}</div>
-                  <div className="text-gray-400 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Header */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-2">
+            What Can I Do For Your Needs
+          </h2>
+          <p className="text-muted-foreground text-sm mb-6">
+            Expertise across multiple development domains with proven results
+          </p>
 
-          {/* Right Side - Services Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {services.map((service, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="bg-[#2a2a3a] rounded-lg overflow-hidden hover:bg-[#3a3a4a] transition-all border border-transparent hover:border-yellow-400">
-                  <div className="aspect-video bg-gray-700 overflow-hidden">
-                    <img 
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-bold text-white mb-1">{service.title}</h3>
-                    <p className="text-gray-400 text-sm">{service.projects}</p>
-                  </div>
+          {/* Stats Row - Simple Text */}
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-primary mb-1">
+                  {counts[index]}+
                 </div>
+                <div className="text-muted-foreground text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Services - Simple List */}
+        <div className="flex flex-wrap gap-3 justify-center max-md:hidden">
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className="px-6 py-3 bg-card rounded-full border border-border hover:border-primary hover:bg-muted transition-all cursor-pointer group shadow-sm"
+            >
+              <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
+                {service.title}
+              </span>
+              <span className="text-muted-foreground text-xs ml-2">({service.projects})</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Horizontal Scroll */}
+        <div className="md:hidden overflow-x-auto pb-2 -mx-4 px-4">
+          <div className="flex gap-2 min-w-max">
+            {services.map((service, index) => (
+              <div 
+                key={index} 
+                className="px-4 py-2 bg-card rounded-full border border-border hover:border-primary hover:bg-muted transition-all cursor-pointer group shadow-sm whitespace-nowrap"
+              >
+                <span className="text-foreground font-medium text-xs group-hover:text-primary transition-colors">
+                  {service.title}
+                </span>
+                <span className="text-muted-foreground text-[10px] ml-1">({service.projects})</span>
               </div>
             ))}
           </div>
