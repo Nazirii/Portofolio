@@ -313,7 +313,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative min-h-[500px] md:min-h-[700px]"
+            className="relative min-h-[500px] md:min-h-[700px] mt-40 md:mt-12 "
           >
             {/* Top Section - Circular Slider Left, Description Right */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-8 md:mb-12">
@@ -427,11 +427,12 @@ export default function Portfolio() {
                       return (
                         <>
                           <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${colors.bg} ${colors.text} rounded-full text-xs md:text-sm font-semibold uppercase tracking-wide border ${colors.border}`}>
-                            <span className="md:hidden">{portfolioProjects[selectedProject].type.split(' ')[0]}</span>
+                            <span className="md:hidden">{portfolioProjects[selectedProject].type.split(' ')[0]} </span>
                             <span className="hidden md:inline">{portfolioProjects[selectedProject].type}</span>
                           </span>
                           <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${statusColor.bg} ${statusColor.text} rounded-full text-xs md:text-sm font-bold`}>
                             {portfolioProjects[selectedProject].status}
+                            
                           </span>
                         </>
                       )
@@ -443,9 +444,10 @@ export default function Portfolio() {
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="text-2xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight"
+                    className="text-2xl md:text-5xl font-bold md:text-white text-amber-300 mb-4 md:mb-6 leading-tight"
                   >
                     {portfolioProjects[selectedProject].title}
+
                   </motion.h3>
                   
                   <motion.p 
