@@ -1,18 +1,46 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
 export default function CTA() {
   return (
     <section className="relative py-20 border-t border-border overflow-visible bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-6 relative z-10 mb-32">
-          <h2 className="text-4xl md:text-5xl font-bold text-heading">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-6 relative z-10 mb-32"
+        >
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold text-heading"
+          >
             Interested? Let&apos;s Collaborate!
-          </h2>
+          </motion.h2>
           
-          <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            I’m open for projects, freelance work, or competition collaborations.
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+          >
+            I'm open for projects, freelance work, or competition collaborations.
 Just hit me up through the media below!
-          </p>
+          </motion.p>
 
-          <div className="flex gap-4 justify-center pt-4 flex-wrap">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex gap-4 justify-center pt-4 flex-wrap"
+          >
             <a 
               href="https://wa.me/+6281253196962" 
               target="_blank" 
@@ -55,8 +83,8 @@ Just hit me up through the media below!
               </svg>
               Gmail
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Image positioned to overlap with footer */}
         <div className="absolute left-50 -translate-x-1/2 bottom-70 translate-y-1/2 z-1 w-full max-w-md">

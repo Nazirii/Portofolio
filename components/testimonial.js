@@ -10,6 +10,8 @@ import {
 import { TbBrandReactNative } from 'react-icons/tb'
 import { FaJava, FaGamepad } from 'react-icons/fa'
 
+import { motion } from 'framer-motion'
+
 export default function TechStack() {
   const techCategories = [
     {
@@ -71,7 +73,13 @@ export default function TechStack() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-400/5 to-transparent pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ">
-        <div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <div className="inline-block mb-3">
             <span className="px-4 py-2 bg-yellow-400/10 text-yellow-400 rounded-full text-sm font-semibold uppercase tracking-wide">
               Technologies
@@ -81,12 +89,16 @@ export default function TechStack() {
           <p className="text-gray-400 max-w-2xl mx-auto">
             Modern technologies and frameworks I use to build scalable and efficient solutions
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {techCategories.map((category, index) => (
-            <div 
-              key={index} 
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-[#2a2a3a] rounded-xl p-6 border border-gray-700/50 hover:border-yellow-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-400/10 hover:-translate-y-1 group"
             >
               <div className="flex items-center gap-2 mb-5">
@@ -120,7 +132,7 @@ export default function TechStack() {
                   )
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

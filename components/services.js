@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 export default function Services() {
@@ -86,7 +87,13 @@ export default function Services() {
     <section ref={sectionRef} id="services" className="py-12 bg-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
           <h2 className="text-3xl font-bold text-foreground mb-2">
             What Can I Do For Your Needs
           </h2>
@@ -105,10 +112,16 @@ export default function Services() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Services - Simple List */}
-        <div className="flex flex-wrap gap-3 justify-center max-md:hidden">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap gap-3 justify-center max-md:hidden"
+        >
           {services.map((service, index) => (
             <div 
               key={index} 
@@ -120,10 +133,16 @@ export default function Services() {
               <span className="text-muted-foreground text-xs ml-2">({service.projects})</span>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile Horizontal Scroll */}
-        <div className="md:hidden overflow-x-auto pb-2 -mx-4 px-4">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="md:hidden overflow-x-auto pb-2 -mx-4 px-4"
+        >
           <div className="flex gap-2 min-w-max">
             {services.map((service, index) => (
               <div 
@@ -137,7 +156,7 @@ export default function Services() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

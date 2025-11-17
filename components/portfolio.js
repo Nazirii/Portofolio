@@ -182,7 +182,13 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="py-20 relative overflow-hidden " >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-4xl font-bold">My Portfolio</h2>
             
@@ -213,25 +219,29 @@ export default function Portfolio() {
             </div>
           </div>
           <p className="text-gray-400">The following are the best portfolios during the career path as a developer</p>
-        </div>
+        </motion.div>
 
-        {/* Grid Mode */}
+        {/* Grid Mode - Desktop & Mobile */}
         {!isAnimatedMode && (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {portfolioProjects.map((project) => {
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-12">
+              {portfolioProjects.map((project, index) => {
                 const colors = typeColors[project.type] || typeColors['Full Stack Web Development']
                 const statusColor = statusColors[project.status] || statusColors['Complete']
                 
                 return (
-                  <div 
-                    key={project.id} 
+                  <motion.div 
+                    key={project.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="group cursor-pointer"
                   >
-                    <div className="relative overflow-hidden aspect-[3/4] mb-4">
+                    <div className="relative overflow-hidden aspect-[3/4] mb-3 md:mb-4">
                       {/* Background Circle */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-[200px] h-[200px] rounded-full bg-gray-700/20 group-hover:bg-gray-600/30 group-hover:scale-110 transition-all duration-500" />
+                      <div className="absolute inset-0 flex items-center justify-center md:border-0 border-4 border-amber-300 opacity-80 rounded-2xl md:rounded-none">
+                        <div className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full bg-gray-700/20 group-hover:bg-gray-600/30 group-hover:scale-110 transition-all duration-500" />
                       </div>
                       
                       {/* Image */}
@@ -242,40 +252,41 @@ export default function Portfolio() {
                       />
                       
                       {/* Status Badge */}
-                      <div className="absolute top-4 left-4 z-20">
-                        <span className={`inline-flex items-center px-3 py-1.5 ${statusColor.bg} ${statusColor.text} rounded-full text-xs font-bold shadow-lg`}>
+                      <div className="absolute top-2 left-2 md:top-4 md:left-4 z-20">
+                        <span className={`inline-flex items-center px-2 py-1 md:px-3 md:py-1.5 ${statusColor.bg} ${statusColor.text} rounded-full text-[10px] md:text-xs font-bold shadow-lg`}>
                           {project.status}
                         </span>
                       </div>
                     </div>
                     
-                    <div className="space-y-3">
-                      <div className={`inline-block px-3 py-1 ${colors.bg} ${colors.text} rounded-full text-xs font-semibold uppercase tracking-wide border ${colors.border}`}>
-                        {project.type}
+                    <div className="space-y-2 md:space-y-3">
+                      <div className={`inline-block px-2 py-0.5 md:px-3 md:py-1 ${colors.bg} ${colors.text} rounded-full text-[9px] md:text-xs font-semibold uppercase tracking-wide border ${colors.border}`}>
+                        <span className="md:hidden">{project.type.split(' ')[0]}</span>
+                        <span className="hidden md:inline">{project.type}</span>
                       </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors">
+                      <h3 className="text-xs md:text-lg font-bold text-white group-hover:text-yellow-400 transition-colors line-clamp-2 md:line-clamp-none">
                         {project.title}
                       </h3>
                       
                       {/* Action Buttons */}
-                      <div className="flex gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex gap-1 md:gap-2 pt-1 md:pt-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                         <button
                           onClick={() => handleSourceClick(project)}
-                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition text-sm font-medium"
+                          className="flex-1 flex items-center justify-center gap-1 md:gap-2 px-2 py-1.5 md:px-4 md:py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md md:rounded-lg transition text-[10px] md:text-sm font-medium"
                         >
-                          {project.figmaUrl && !project.githubUrl ? <Figma size={16} /> : <Github size={16} />}
-                          {project.figmaUrl && !project.githubUrl ? 'Figma' : 'Source'}
+                          {project.figmaUrl && !project.githubUrl ? <Figma size={12} className="md:w-4 md:h-4" /> : <Github size={12} className="md:w-4 md:h-4" />}
+                          <span className="hidden md:inline">{project.figmaUrl && !project.githubUrl ? 'Figma' : 'Source'}</span>
                         </button>
                         <button
                           onClick={() => openModal(project)}
-                          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-lg transition text-sm font-bold"
+                          className="flex-1 flex items-center justify-center gap-1 md:gap-2 px-2 py-1.5 md:px-4 md:py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-md md:rounded-lg transition text-[10px] md:text-sm font-bold"
                         >
-                          <ExternalLink size={16} />
-                          Details
+                          <ExternalLink size={12} className="md:w-4 md:h-4" />
+                          <span className="hidden md:inline">Details</span>
                         </button>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
@@ -284,14 +295,19 @@ export default function Portfolio() {
 
         {/* Circular Animated Mode */}
     {isAnimatedMode && (
-          <div className="relative min-h-[700px] ">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative min-h-[500px] md:min-h-[700px]"
+          >
             {/* Top Section - Circular Slider Left, Description Right */}
-            <div className="hidden md:flex items-start gap-8 mb-12  ">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-8 md:mb-12">
               
               {/* Left Side - Orbital Slider (bergerak dari kanan atas ke tengah dengan pola orbit) */}
-              <div className="flex-1 relative h-[500px] pointer-events-none">
+              <div className="flex-1 relative h-[300px] md:h-[500px] w-full pointer-events-none">
                 {/* Circular Orbit Path - Full circle with gradient trail */}
-                <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] -rotate-90" viewBox="0 0 560 560">
+                <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[560px] md:h-[560px] -rotate-90" viewBox="0 0 560 560">
                   <defs>
                     <linearGradient id="orbitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" style={{ stopColor: '#facc15', stopOpacity: 0.8 }} />
@@ -324,7 +340,8 @@ export default function Portfolio() {
                     const isActive = index === selectedProject
                     
                     // Pola orbit: mengikuti lingkaran dari kanan atas ke tengah
-                    const orbitRadius = 400
+                    // Responsive orbit radius
+                    const orbitRadius = window.innerWidth < 768 ? 200 : 400
                     let angle, xPos, yPos, scale, zIndex, opacity
                     
                     if (isActive) {
@@ -370,7 +387,7 @@ export default function Portfolio() {
                           onClick={() => setSelectedProject(index)}
                           style={{
                             width: 'auto',
-                            height: '450px',
+                            height: window.innerWidth < 768 ? '250px' : '450px',
                             maxWidth: 'none'
                           }}
                         />
@@ -381,24 +398,25 @@ export default function Portfolio() {
               </div>
 
               {/* Right Side - Project Details */}
-              <div className="flex-1 space-y-6 relative z-20">
-                <div className="rounded-3xl p-10 border-none border-gray-700 h-[500px] flex flex-col justify-center overflow-hidden">
+              <div className="flex-1 space-y-4 md:space-y-6 relative z-20 w-full">
+                <div className="rounded-2xl md:rounded-3xl p-6 md:p-10 border-none border-gray-700 min-h-[300px] md:h-[500px] flex flex-col justify-center overflow-hidden">
                   <motion.div 
                     key={`status-${selectedProject}`}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="flex gap-3 mb-4"
+                    className="flex gap-2 md:gap-3 mb-3 md:mb-4 flex-wrap"
                   >
                     {(() => {
                       const colors = typeColors[portfolioProjects[selectedProject].type] || typeColors['Full Stack Web Development']
                       const statusColor = statusColors[portfolioProjects[selectedProject].status] || statusColors['Complete']
                       return (
                         <>
-                          <span className={`inline-block px-4 py-2 ${colors.bg} ${colors.text} rounded-full text-sm font-semibold uppercase tracking-wide border ${colors.border}`}>
-                            {portfolioProjects[selectedProject].type}
+                          <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${colors.bg} ${colors.text} rounded-full text-xs md:text-sm font-semibold uppercase tracking-wide border ${colors.border}`}>
+                            <span className="md:hidden">{portfolioProjects[selectedProject].type.split(' ')[0]}</span>
+                            <span className="hidden md:inline">{portfolioProjects[selectedProject].type}</span>
                           </span>
-                          <span className={`inline-block px-4 py-2 ${statusColor.bg} ${statusColor.text} rounded-full text-sm font-bold`}>
+                          <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${statusColor.bg} ${statusColor.text} rounded-full text-xs md:text-sm font-bold`}>
                             {portfolioProjects[selectedProject].status}
                           </span>
                         </>
@@ -411,7 +429,7 @@ export default function Portfolio() {
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                    className="text-5xl font-bold text-white mb-6 leading-tight"
+                    className="text-2xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight"
                   >
                     {portfolioProjects[selectedProject].title}
                   </motion.h3>
@@ -421,7 +439,7 @@ export default function Portfolio() {
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                    className="text-gray-300 text-lg leading-relaxed mb-8"
+                    className="text-gray-300 text-sm md:text-lg leading-relaxed mb-6 md:mb-8"
                   >
                     {portfolioProjects[selectedProject].description}
                   </motion.p>
@@ -431,20 +449,20 @@ export default function Portfolio() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-                    className="flex gap-4"
+                    className="flex gap-2 md:gap-4 flex-col sm:flex-row"
                   >
                     <button 
                       onClick={() => handleSourceClick(portfolioProjects[selectedProject])}
-                      className="inline-flex items-center gap-2 px-8 py-4 bg-gray-800 text-white rounded-full font-bold hover:bg-gray-700 transition-all hover:scale-105"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-gray-800 text-white rounded-full font-bold hover:bg-gray-700 transition-all hover:scale-105 text-sm md:text-base"
                     >
-                      {portfolioProjects[selectedProject].figmaUrl && !portfolioProjects[selectedProject].githubUrl ? <Figma size={20} /> : <Github size={20} />}
+                      {portfolioProjects[selectedProject].figmaUrl && !portfolioProjects[selectedProject].githubUrl ? <Figma size={16} className="md:w-5 md:h-5" /> : <Github size={16} className="md:w-5 md:h-5" />}
                       {portfolioProjects[selectedProject].figmaUrl && !portfolioProjects[selectedProject].githubUrl ? 'View Figma' : 'View Source'}
                     </button>
                     <button 
                       onClick={() => openModal(portfolioProjects[selectedProject])}
-                      className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-400 text-gray-900 rounded-full font-bold hover:bg-yellow-500 transition-all hover:scale-105 shadow-lg shadow-yellow-400/30"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-yellow-400 text-gray-900 rounded-full font-bold hover:bg-yellow-500 transition-all hover:scale-105 shadow-lg shadow-yellow-400/30 text-sm md:text-base"
                     >
-                      <ExternalLink size={20} />
+                      <ExternalLink size={16} className="md:w-5 md:h-5" />
                       View Details
                     </button>
                   </motion.div>
@@ -453,23 +471,23 @@ export default function Portfolio() {
             </div>
 
             {/* Bottom Section - Horizontal Thumbnail Carousel */}
-            <div className="hidden md:flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-3 md:gap-6 px-4">
               <button
                 onClick={() => rotateProjects('prev')}
-                className="w-12 h-12 rounded-full bg-gray-800 hover:bg-yellow-400 hover:text-gray-900 border-2 border-gray-700 hover:border-yellow-400 flex items-center justify-center transition-all duration-300"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 hover:bg-yellow-400 hover:text-gray-900 border-2 border-gray-700 hover:border-yellow-400 flex items-center justify-center transition-all duration-300"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={20} className="md:w-6 md:h-6" />
               </button>
 
-              <div className="flex items-center gap-4 max-w-3xl py-2">
+              <div className="flex items-center gap-2 md:gap-4 max-w-full md:max-w-3xl py-2 overflow-x-auto scrollbar-hide">
                 {portfolioProjects.map((project, index) => {
                   const isSelected = index === selectedProject
                   return (
                     <div
                       key={project.id}
-                      className={`relative flex-shrink-0 cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 ${
+                      className={`relative flex-shrink-0 cursor-pointer rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 ${
                         isSelected
-                          ? 'ring-4 ring-yellow-400 shadow-xl shadow-yellow-400/50 scale-100'
+                          ? 'ring-3 md:ring-4 ring-yellow-400 shadow-xl shadow-yellow-400/50 scale-100'
                           : 'ring-2 ring-gray-700 opacity-60 hover:opacity-100 hover:ring-yellow-400/50'
                       }`}
                       style={{ 
@@ -478,7 +496,7 @@ export default function Portfolio() {
                       onClick={() => setSelectedProject(index)}
                     >
                       <div className={`relative transition-all duration-300 ${
-                        isSelected ? 'w-28 h-28' : 'w-20 h-20'
+                        isSelected ? 'w-20 h-20 md:w-28 md:h-28' : 'w-14 h-14 md:w-20 md:h-20'
                       }`}>
                         <img
                           src={project.image || "/placeholder.svg"}
@@ -486,8 +504,8 @@ export default function Portfolio() {
                           className="w-full h-full object-cover"
                         />
                         {isSelected && (
-                          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-yellow-400 rounded-full">
-                            <p className="text-gray-900 text-xs font-bold truncate max-w-[80px]">
+                          <div className="absolute bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 px-1.5 py-0.5 md:px-2 md:py-1 bg-yellow-400 rounded-full">
+                            <p className="text-gray-900 text-[9px] md:text-xs font-bold truncate max-w-[60px] md:max-w-[80px]">
                               {project.title.split(' ')[0]}
                             </p>
                           </div>
@@ -500,77 +518,27 @@ export default function Portfolio() {
 
               <button
                 onClick={() => rotateProjects('next')}
-                className="w-12 h-12 rounded-full bg-gray-800 hover:bg-yellow-400 hover:text-gray-900 border-2 border-gray-700 hover:border-yellow-400 flex items-center justify-center transition-all duration-300"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 hover:bg-yellow-400 hover:text-gray-900 border-2 border-gray-700 hover:border-yellow-400 flex items-center justify-center transition-all duration-300"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={20} className="md:w-6 md:h-6" />
               </button>
             </div>
 
-            {/* Mobile Grid View (2 columns) */}
-            <div className="md:hidden grid grid-cols-2 gap-4">
-              {portfolioProjects.map((project) => {
-                const colors = typeColors[project.type] || typeColors['Full Stack Web Development']
-                const statusColor = statusColors[project.status] || statusColors['Complete']
-                
-                return (
-                  <div 
-                    key={project.id} 
-                    className="group cursor-pointer"
-                  >
-                    <div className="relative overflow-hidden aspect-[3/4] mb-3">
-                      {/* <div className="absolute inset-0 flex items-center justify-center bg-amber-300 opacity-80 rounded-2xl"> */}
-                      <div className="absolute inset-0 flex items-center justify-center border-4 border-amber-300 opacity-80 rounded-2xl">
-                        <div className="w-[150px] h-[150px] rounded-full bg-gray-700/20 group-hover:bg-gray-600/30 group-hover:scale-110 transition-all duration-500" />
-                      </div>
-                      
-                      <img 
-                        src={project.image || "/placeholder.svg"} 
-                        alt={project.title}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl relative z-10"
-                      />
-                      
-                      <div className="absolute top-2 left-2 z-20">
-                        <span className={`inline-flex items-center px-2 py-1 ${statusColor.bg} ${statusColor.text} rounded-full text-[10px] font-bold shadow-lg`}>
-                          {project.status}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className={`inline-block px-2 py-0.5 ${colors.bg} ${colors.text} rounded-full text-[9px] font-semibold uppercase tracking-wide border ${colors.border}`}>
-                        {project.type.split(' ')[0]}
-                      </div>
-                      <h3 className="text-xs font-bold text-white group-hover:text-yellow-400 transition-colors line-clamp-2">
-                        {project.title}
-                      </h3>
-                      
-                      <div className="flex gap-1 pt-1">
-                        <button
-                          onClick={() => handleSourceClick(project)}
-                          className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition text-[10px] font-medium"
-                        >
-                          {project.figmaUrl && !project.githubUrl ? <Figma size={12} /> : <Github size={12} />}
-                        </button>
-                        <button
-                          onClick={() => openModal(project)}
-                          className="flex-1 flex items-center justify-center gap-1 px-2 py-1.5 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-md transition text-[10px] font-bold"
-                        >
-                          <ExternalLink size={12} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
+
+          </motion.div>
         )}
 
-        <div className="flex justify-center mt-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mt-12"
+        >
           <button className="px-8 py-3 border border-yellow-400 text-yellow-400 rounded-full font-medium hover:bg-yellow-400 hover:text-gray-900 transition">
             More Portfolio
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Modal */}
