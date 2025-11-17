@@ -28,9 +28,7 @@ export default function Header() {
             <button className="p-2 hover:bg-gray-800 rounded-lg transition">
               <Linkedin size={20} className="text-[#F8C333]" />
             </button>
-            <button className="md:hidden p-2 hover:bg-gray-800 rounded-lg transition">
-              <Menu size={20} />
-            </button>
+          
           </div>
         </div>
       </div>

@@ -86,7 +86,7 @@ export default function Portfolio() {
     {
       id: 5,
       type: 'Mobile App Development',
-      title: 'Eatsedi',
+      title: 'Eatstedi',
       image: '/images/EATSTEDI.png',
       description: 'mobile food-ordering platform built for the KMTEDI student community at UGM, enabling fast and convenient ordering from the campus',
       fullDescription: 'EATSTEDI is a mobile application developed for the KMTEDI (Keluarga Mahasiswa Departemen Teknik Elektro dan Informatika) community at Universitas Gadjah Mada. The app provides a modern, streamlined food-ordering experience for the student canteen, allowing users to browse menus, place orders, track preparation status in real time, and manage payments conveniently from their smartphones.Built with React Native and powered by Firebase, EATSTEDI delivers fast performance, real-time order synchronization, and an intuitive UI designed specifically for the needs of university students.',
@@ -518,8 +518,9 @@ export default function Portfolio() {
                     className="group cursor-pointer"
                   >
                     <div className="relative overflow-hidden aspect-[3/4] mb-3">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-[120px] h-[120px] rounded-full bg-gray-700/20 group-hover:bg-gray-600/30 group-hover:scale-110 transition-all duration-500" />
+                      {/* <div className="absolute inset-0 flex items-center justify-center bg-amber-300 opacity-80 rounded-2xl"> */}
+                      <div className="absolute inset-0 flex items-center justify-center border-4 border-amber-300 opacity-80 rounded-2xl">
+                        <div className="w-[150px] h-[150px] rounded-full bg-gray-700/20 group-hover:bg-gray-600/30 group-hover:scale-110 transition-all duration-500" />
                       </div>
                       
                       <img 

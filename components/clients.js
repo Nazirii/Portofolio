@@ -7,18 +7,18 @@ export default function Clients() {
   ]
 
   return (
-    <section className="relative -mt-20 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative md:-mt-20 z-40 -mt-10">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="bg-[#40404D] rounded-lg p-8 shadow-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <div className="grid grid-cols-4 md:grid-cols-4 gap-8 items-center">
             {clients.map((client) => (
-              <div key={client.name} className="flex items-center justify-center gap-3">
+              <div key={client.name} className="flex items-center justify-center gap-3 flex-col md:flex-row">
                 <img 
                   src={client.logo}
                   alt={client.name}
                   className="h-12 w-auto object-contain"
                 />
-                <span className="text-xl font-bold text-white">{client.name}</span>
+                <span className="text-xl hidden md:block font-bold text-white">{client.name}</span>
               </div>
             ))}
           </div>

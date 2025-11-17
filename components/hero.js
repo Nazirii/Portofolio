@@ -16,7 +16,7 @@ export default function Hero() {
               <div className="w-30 h-1 bg-yellow-400"></div>
             </div>
             
-            <p className="text-gray-400 text-lg leading-relaxed lg:max-w-xs">
+            <p className="md:text-gray-400 text-white text-lg leading-relaxed lg:max-w-xs">
               A motivated student driven by curiosity and a strong passion for programming, always eager to learn, build, and grow.
             </p>
 
@@ -40,7 +40,7 @@ export default function Hero() {
         
           </div>
 
-          <div className=" h-96 md:h-full absolute left-[33%] bottom-20 z-20 group">
+          <div className=" h-96 md:h-full absolute md:left-[33%] md:bottom-20 z-1 group left-60 md:z-20 bottom-10">
             <img 
               src="\images\NAZIRI.png"
               alt="adib naziri"
@@ -72,7 +72,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className='absolute bg-[#272833] rounded-full w-[500px] h-[500px] left-1/2 top-4/10 -translate-x-1/2 -translate-y-1/2 z-0'></div>
+      <div className='absolute bg-[#272833] rounded-full w-100 h-100 md:w-[500px] md:h-[500px] left-1/2 top-4/10 -translate-x-1/2 -translate-y-1/2 z-0'></div>
     </section>
   )
 }

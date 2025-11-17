@@ -6,26 +6,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2 text-muted-foreground text-sm">
-              <li><a href="#" className="hover:text-foreground transition">UX/UX Design</a></li>
               <li><a href="#" className="hover:text-foreground transition">Web Dev</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-4 text-foreground">About</h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li><a href="#" className="hover:text-foreground transition">My History</a></li>
-              <li><a href="#" className="hover:text-foreground transition">Blogs</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-4 text-foreground">Information</h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li><a href="#" className="hover:text-foreground transition">Sitemap</a></li>
-              <li><a href="#" className="hover:text-foreground transition">FAQ</a></li>
-            </ul>
-          </div>
 
           <div>
             <h4 className="font-bold mb-4 text-foreground">Got It Touch</h4>
