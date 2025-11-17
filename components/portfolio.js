@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 
 import { ArrowRight, Grid3X3, CircleDot, ChevronLeft, ChevronRight, X, ExternalLink, Github, Figma } from 'lucide-react'
@@ -14,6 +14,20 @@ export default function Portfolio() {
   const [modalProject, setModalProject] = useState(null)
   const [showToast, setShowToast] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // Set initial value
+    setIsMobile(window.innerWidth < 768)
+    
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const typeColors = {
     'Full Stack Web Development': { bg: 'bg-purple-500/20', text: 'text-purple-400', border: 'border-purple-500' },
@@ -341,7 +355,7 @@ export default function Portfolio() {
                     
                     // Pola orbit: mengikuti lingkaran dari kanan atas ke tengah
                     // Responsive orbit radius
-                    const orbitRadius = window.innerWidth < 768 ? 200 : 400
+                    const orbitRadius = isMobile ? 200 : 400
                     let angle, xPos, yPos, scale, zIndex, opacity
                     
                     if (isActive) {
@@ -387,7 +401,7 @@ export default function Portfolio() {
                           onClick={() => setSelectedProject(index)}
                           style={{
                             width: 'auto',
-                            height: window.innerWidth < 768 ? '250px' : '450px',
+                            height: isMobile ? '250px' : '450px',
                             maxWidth: 'none'
                           }}
                         />
