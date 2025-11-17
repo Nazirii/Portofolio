@@ -6,8 +6,8 @@ const geist = Geist({ subsets: ["latin"] });
 const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'James Adams - Portfolio',
-  description: 'Professional portfolio of James Adams, a freelancer specializing in digital programming and design',
+  title: 'Naziri - Portfolio',
+  description: 'Professional portfolio of Adib Naziri, a freelancer specializing in digital programming and design',
   generator: 'v0.app',
   icons: {
     icon: [
