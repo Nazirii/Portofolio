@@ -32,7 +32,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="md:text-gray-400 text-white text-lg leading-relaxed lg:max-w-xs"
             >
-              A motivated student driven by curiosity and a strong passion for programming, always eager to learn, build, and grow.
+              A motivated student driven by curiosity and a strong passion for Machine Learning,Applied AI,and Programming, always eager to learn, build, and grow.
             </motion.p>
 
             {/* Student Info */}
@@ -82,7 +82,8 @@ export default function Hero() {
           >
             <p className="text-gray-400 text-sm font-semibold">Services</p>
             <h2 className="text-xl font-semibold text-white leading-8 tracking-wide">
-              Let&apos;s build quality products in programming  with my services
+            Got a crazy idea in AI or ML? Let’s turn it into something real.
+
             </h2>
             <a href="#services" className="inline-flex items-center gap-2 text-yellow-400 font-semibold hover:gap-3 transition-all">
               show more <span>→</span>

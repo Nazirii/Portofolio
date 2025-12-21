@@ -5,15 +5,27 @@ import {
   SiNodedotjs, SiExpress, SiNestjs, SiLaravel, SiPhp,
   SiFlutter, SiKotlin, SiSwift, 
   SiPostgresql, SiMongodb, SiMysql, SiRedis, SiDocker, SiGit,
-  SiPython, SiJavascript, SiUnity, SiGodotengine
+  SiPython, SiJavascript, SiUnity, SiGodotengine, SiTensorflow,
+  SiPandas, SiNumpy, SiScikitlearn, SiOpencv, SiPytorch
 } from 'react-icons/si'
 import { TbBrandReactNative } from 'react-icons/tb'
-import { FaJava, FaGamepad } from 'react-icons/fa'
+import { FaJava, FaGamepad, FaBrain, FaDatabase } from 'react-icons/fa'
 
 import { motion } from 'framer-motion'
 
 export default function TechStack() {
   const techCategories = [
+    {
+      title: 'AI/ML',
+      color: 'from-violet-500 to-purple-500',
+      techs: [
+        { name: 'Python', Icon: SiPython, color: '#3776AB' },
+        { name: 'TensorFlow', Icon: SiTensorflow, color: '#FF6F00' },
+        { name: 'Pandas', Icon: SiPandas, color: '#150458' },
+        { name: 'NumPy', Icon: SiNumpy, color: '#013243' },
+        { name: 'PG Vector', Icon: FaDatabase, color: '#4169E1' },
+      ]
+    },
     {
       title: 'Frontend',
       color: 'from-blue-500 to-cyan-500',
@@ -91,7 +103,7 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {techCategories.map((category, index) => (
             <motion.div 
               key={index}

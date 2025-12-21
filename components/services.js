@@ -28,7 +28,7 @@ export default function Services() {
   }, [hasAnimated])
 
   const animateCounters = () => {
-    const targets = [4, 2, 1]
+    const targets = [8, 2, 1]
     const duration = 2000
     const steps = 60
     const increment = targets.map(target => target / steps)
@@ -62,7 +62,7 @@ export default function Services() {
     {
       image: '/icon/fullstack.png',
       title: 'Fullstack Developer',
-      projects: '1 Project'
+      projects: '2 Project'
     },
     {
       image: '/icon/be.png',
@@ -73,14 +73,19 @@ export default function Services() {
       image: '/images/game.jpg',
       title: 'Game Development',
       projects: '1 Project'
+    },
+    {
+      image: '/images/ai.png',
+      title: 'Applied AI/ ML Projects',
+      projects: '2 Project'
     }
   ]
 
   const stats = [
-    { label: 'Project Completed' },
-    { label: 'Project Ongoing' },
-    { label: 'Large-Scale Government Website Project' },
+    { label: 'Project' },
+    { label: 'Applied AI/ ML Projects' },
    
+    { label: 'Large-Scale Government Website Project' },
   ]
 
   return (

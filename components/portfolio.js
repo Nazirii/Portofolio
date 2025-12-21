@@ -36,16 +36,42 @@ export default function Portfolio() {
     'Mobile App Development': { bg: 'bg-cyan-500/20', text: 'text-cyan-400', border: 'border-cyan-500' },
     'Game Development': { bg: 'bg-pink-500/20', text: 'text-pink-400', border: 'border-pink-500' },
   }
-
+  
   const statusColors = {
     'Complete': { bg: 'bg-green-500', text: 'text-white' },
     'Ongoing': { bg: 'bg-yellow-500', text: 'text-gray-900' },
     'Maintenance': { bg: 'bg-blue-500', text: 'text-white' },
   }
-
+  
   const portfolioProjects = [
     {
       id: 1,
+      type: 'Applied AI',
+      title: 'Naziri (AI assistant for Menu Catalog)',
+      image: '/images/rag.png',
+      description: 'An AI-driven menu catalog with a smart assistant powered by RAG, capable of understanding context, answering menu questions, and recommending items naturally. With function calling, users can add or remove items, manage the cart, and checkout directly through conversation—making ordering fast, intuitive, and seamless.',
+      fullDescription:'menu catalog app features an intelligent AI assistant powered by Retrieval-Augmented Generation (RAG), enabling it to understand menu items, user preferences, and ongoing conversation context. The assistant can interact naturally with users, answer menu-related questions, and provide personalized recommendations.With built-in function calling, the AI can seamlessly handle actions such as adding or removing items from the cart, updating quantities, and completing checkout, turning conversations directly into transactions. This creates a smooth, intuitive ordering experience that feels natural, fast, and efficient.',
+      techStack: ['Laravel', 'PostgreSQL', 'PG Vector', 'Next.js','Gemini API'],
+      role: 'Full Stack Developer',
+      status: 'Complete',
+      githubUrl: 'https://github.com/Nazirii/RAG-FUNCTION-PGVECTOR',
+      caseStudy: true
+    },
+    {
+    id: 2,
+    type: 'Machine Learning',
+    title: 'Drowsiness Classificator',
+    image: '/images/Drowsiness.png',
+    description:  'A deep learning model for driver drowsiness classification using video data, combining YOLO-based face detection, CNN for spatial feature extraction, and LSTM for temporal sequence modeling.',
+    fullDescription: 'This work focuses on developing and training a driver drowsiness classification model using sequential video data. YOLO is used to detect and crop the driver’s face region from each frame. The extracted face frames are processed by a CNN to learn spatial features related to facial expressions and eye states. These features are then passed into an LSTM network to model temporal dependencies across consecutive frames, enabling the model to distinguish between drowsy and non-drowsy driving behavior. The emphasis of this work is on model architecture design, training strategy, and temporal feature learning rather than application deployment.',
+    techStack: ['Python', 'PyTorch', 'YOLO', 'CNN', 'LSTM', 'OpenCV'],
+    role: 'Machine Learning Developer',
+    status: 'Complete',
+    githubUrl: 'https://github.com/Nazirii/drowsiness-classificator',
+    caseStudy: true
+    },
+    {
+      id: 3,
       type: 'Full Stack Web Development',
       title: 'Administration Web of CV.Harum Manis',
       image: '/images/HARUMMANIS.png',
@@ -58,7 +84,7 @@ export default function Portfolio() {
       caseStudy: true
     },
     {
-  id: 2,
+  id: 4,
   type: 'Game Development',
   title: 'Florwyn',
   image: '/images/Florwyn.png',
@@ -71,7 +97,7 @@ export default function Portfolio() {
   caseStudy: true
 },
  {
-  id: 3,
+  id: 5,
   type: 'Frontend Web Development',
   title: 'Tech Enthusiast Day',
   image: '/images/ted.png',
@@ -85,7 +111,7 @@ export default function Portfolio() {
 }
 ,
     {
-      id: 4,
+      id: 6,
       type: 'Backend Web Development',
       title: 'SIPELITA by Kementrian LH',
       image: '/images/SIPELITA.png',
@@ -98,7 +124,7 @@ export default function Portfolio() {
       caseStudy: true
     },
     {
-      id: 5,
+      id: 7,
       type: 'Mobile App Development',
       title: 'Eatstedi',
       image: '/images/EATSTEDI.png',
@@ -112,7 +138,7 @@ export default function Portfolio() {
       caseStudy: true
     },
    {
-  id: 6,
+  id: 8,
   type: 'Backend Web Development',
   title: 'RDK Ramadan Event Platform',
   image: '/icon/rdk.png',
@@ -124,7 +150,7 @@ export default function Portfolio() {
   githubUrl: null,
   projectNotStarted: true,
   caseStudy: true
-}
+},
 
    
   ]
