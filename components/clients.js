@@ -7,7 +7,8 @@ export default function Clients() {
     { name: 'UGM', logo: '/icon/UGM.png' },
     { name: 'TED', logo: '/icon/ted.svg' },
     { name: 'Kementrian LH', logo: '/icon/kemenlh.png' },
-    { name: 'RDK', logo: '/icon/rdk.png' },
+    // { name: 'RDK', logo: '/icon/rdk.png' },
+    { name: 'GDGOC', logo: '/icon/gdgoc.png' },
   ]
 
   return (

@@ -35,6 +35,13 @@ export default function Portfolio() {
     'Backend Web Development': { bg: 'bg-green-500/20', text: 'text-green-400', border: 'border-green-500' },
     'Mobile App Development': { bg: 'bg-cyan-500/20', text: 'text-cyan-400', border: 'border-cyan-500' },
     'Game Development': { bg: 'bg-pink-500/20', text: 'text-pink-400', border: 'border-pink-500' },
+    'Applied AI': { bg: 'bg-orange-500/20', text: 'text-orange-400', border: 'border-orange-500' },
+    'Machine Learning': { bg: 'bg-red-500/20', text: 'text-red-400', border: 'border-red-500' },
+  }
+  
+  const badgeColors = {
+    'National Project': { bg: 'bg-red-600', text: 'text-white', icon: '🇮🇩' },
+    'Winner Hackathon': { bg: 'bg-amber-500', text: 'text-gray-900', icon: '🏆' },
   }
   
   const statusColors = {
@@ -46,6 +53,34 @@ export default function Portfolio() {
   const portfolioProjects = [
     {
       id: 1,
+      type: 'Backend Web Development',
+      title: 'SIPELITA - Nirwasita Tantra by Kementrian LH',
+      image: '/images/SIPELITA.png',
+      description: 'National-scale web platform for the Ministry of Environment and Forestry managing the Nirwasita Tantra environmental award program. Processes and validates environmental data from provinces and districts/cities across Indonesia.',
+      fullDescription: 'SIPELITA is an official national-scale web application developed for the Ministry of Environment and Forestry of Indonesia to manage the prestigious Nirwasita Tantra environmental award program. The platform serves as the central system for processing and validating environmental data submitted by all 34 provinces and 514 districts/cities across Indonesia. The system handles comprehensive assessment workflows for Nirwasita Tantra awards, alongside other national environmental programs including Adipura (clean city awards), Proklim (climate adaptation), Adiwiyata (green schools), and manages datasets such as Regional Environmental Status Reports (SLHD) and Environmental Quality Index (IKLH). I developed the complete backend architecture featuring large-scale document upload handling, automated index computation workflows, multi-stage validation systems, and a sophisticated role-based authentication system supporting thousands of government officials nationwide.',
+      techStack: ['Next.js', 'Laravel', 'MySQL', 'Redis', 'Docker'],
+      role: 'Backend Developer',
+      status: 'Maintenance',
+      githubUrl: 'https://github.com/Nazirii/SIPELITA',
+      badge: 'National Project',
+      caseStudy: true
+    },
+    {
+      id: 2,
+      type: 'Applied AI',
+      title: 'temanJalan',
+      image: '/images/temanjalan.png',
+      description: 'An AI-powered route mapping application designed to help people with disabilities find the safest and most accessible disability-friendly routes. Winner of the Mini-Hackathon by Google Developer Group on Campus (GDGOC) UGM.',
+      fullDescription: 'temanJalan is an innovative accessibility-focused application that leverages artificial intelligence to provide safe and disability-friendly route recommendations. Built with a modern microservices architecture, the app analyzes real-time data to identify the most accessible paths for people with disabilities. The system uses Python-based AI/ML models for route optimization and accessibility scoring, deployed as containerized services using Docker for scalability and maintainability. This project won the Mini-Hackathon organized by Google Developer Group on Campus (GDGOC) at Universitas Gadjah Mada, demonstrating its impact on inclusive technology solutions.',
+      techStack: ['Docker', 'Python', 'Express.js', 'Next.js', 'TensorFlow', 'Microservices'],
+      role: 'Full Stack Developer & ML Engineer',
+      status: 'Complete',
+      githubUrl: 'https://github.com/Nazirii/HACKATON_GDGOC',
+      // badge: 'Winner Hackathon',
+      caseStudy: true
+    },
+    {
+      id: 3,
       type: 'Applied AI',
       title: 'Naziri (AI assistant for Menu Catalog)',
       image: '/images/rag.png',
@@ -58,7 +93,7 @@ export default function Portfolio() {
       caseStudy: true
     },
     {
-    id: 2,
+    id: 4,
     type: 'Machine Learning',
     title: 'Drowsiness Classificator',
     image: '/images/Drowsiness.png',
@@ -71,7 +106,7 @@ export default function Portfolio() {
     caseStudy: true
     },
     {
-      id: 3,
+      id: 5,
       type: 'Full Stack Web Development',
       title: 'Administration Web of CV.Harum Manis',
       image: '/images/HARUMMANIS.png',
@@ -84,7 +119,7 @@ export default function Portfolio() {
       caseStudy: true
     },
     {
-  id: 4,
+  id: 6,
   type: 'Game Development',
   title: 'Florwyn',
   image: '/images/Florwyn.png',
@@ -97,7 +132,7 @@ export default function Portfolio() {
   caseStudy: true
 },
  {
-  id: 5,
+  id: 7,
   type: 'Frontend Web Development',
   title: 'Tech Enthusiast Day',
   image: '/images/ted.png',
@@ -111,20 +146,7 @@ export default function Portfolio() {
 }
 ,
     {
-      id: 6,
-      type: 'Backend Web Development',
-      title: 'SIPELITA by Kementrian LH',
-      image: '/images/SIPELITA.png',
-      description: 'Government backend platform for processing environmental assessment data with secure upload, validation, and reporting workflows.',
-      fullDescription: 'SIPELITA is a government backend system used by the Ministry of Environment and Forestry to process and validate environmental data submitted by all provinces and districts/cities across Indonesia The system manages various types of environmental datasets such as the Regional Environmental Status Report (SLHD), Environmental Quality Index (IKLH), as well as assessment metrics for national environmental award programs including Adipura, Proklim, Adiwiyata, and Nirwasita Tantra.In this project, I developed the backend architecture that handles large-scale document uploads, index computation workflows, multi-stage validation processes, and a role-based authentication system supporting thousands of government users nationwide.',
-      techStack: ['Next.js', 'Laravel', 'MySQL', 'Redis', 'Docker'],
-      role: 'Backend Developer',
-      status: 'Maintenance',
-      githubUrl: 'https://github.com/Nazirii/SIPELITA',
-      caseStudy: true
-    },
-    {
-      id: 7,
+      id: 8,
       type: 'Mobile App Development',
       title: 'Eatstedi',
       image: '/images/EATSTEDI.png',
@@ -138,7 +160,7 @@ export default function Portfolio() {
       caseStudy: true
     },
    {
-  id: 8,
+  id: 9,
   type: 'Backend Web Development',
   title: 'RDK Ramadan Event Platform',
   image: '/icon/rdk.png',
@@ -297,6 +319,19 @@ export default function Portfolio() {
                           {project.status}
                         </span>
                       </div>
+                      
+                      {/* Special Badge */}
+                      {project.badge && (() => {
+                        const badgeStyle = badgeColors[project.badge] || { bg: 'bg-gray-600', text: 'text-white', icon: '⭐' }
+                        return (
+                          <div className="absolute top-2 right-2 md:top-4 md:right-4 z-20">
+                            <span className={`inline-flex items-center gap-1 px-2 py-1 md:px-3 md:py-1.5 ${badgeStyle.bg} ${badgeStyle.text} rounded-full text-[10px] md:text-xs font-bold shadow-lg`}>
+                              <span>{badgeStyle.icon}</span>
+                              <span className="hidden md:inline">{project.badge}</span>
+                            </span>
+                          </div>
+                        )
+                      })()}
                     </div>
                     
                     <div className="space-y-2 md:space-y-3">
@@ -450,16 +485,23 @@ export default function Portfolio() {
                     {(() => {
                       const colors = typeColors[portfolioProjects[selectedProject].type] || typeColors['Full Stack Web Development']
                       const statusColor = statusColors[portfolioProjects[selectedProject].status] || statusColors['Complete']
+                      const currentProject = portfolioProjects[selectedProject]
+                      const badgeStyle = currentProject.badge ? (badgeColors[currentProject.badge] || { bg: 'bg-gray-600', text: 'text-white', icon: '⭐' }) : null
                       return (
                         <>
                           <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${colors.bg} ${colors.text} rounded-full text-xs md:text-sm font-semibold uppercase tracking-wide border ${colors.border}`}>
-                            <span className="md:hidden">{portfolioProjects[selectedProject].type.split(' ')[0]} </span>
-                            <span className="hidden md:inline">{portfolioProjects[selectedProject].type}</span>
+                            <span className="md:hidden">{currentProject.type.split(' ')[0]} </span>
+                            <span className="hidden md:inline">{currentProject.type}</span>
                           </span>
-                          <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${statusColor.bg} ${statusColor.text} rounded-full text-xs md:text-sm font-bold`}>
-                            {portfolioProjects[selectedProject].status}
-                            
-                          </span>
+                          {/* <span className={`inline-block px-3 py-1 md:px-4 md:py-2 ${statusColor.bg} ${statusColor.text} rounded-full text-xs md:text-sm font-bold`}>
+                            {currentProject.status}
+                          </span> */}
+                          {badgeStyle && (
+                            <span className={`inline-flex items-center gap-1 md:gap-2 px-3 py-1 md:px-4 md:py-2 ${badgeStyle.bg} ${badgeStyle.text} rounded-full text-xs md:text-sm font-bold`}>
+                              <span>{badgeStyle.icon}</span>
+                              {currentProject.badge}
+                            </span>
+                          )}
                         </>
                       )
                     })()}
@@ -608,6 +650,7 @@ export default function Portfolio() {
                     {(() => {
                       const colors = typeColors[modalProject.type] || typeColors['Full Stack Web Development']
                       const statusColor = statusColors[modalProject.status] || statusColors['Complete']
+                      const badgeStyle = modalProject.badge ? (badgeColors[modalProject.badge] || { bg: 'bg-gray-600', text: 'text-white', icon: '⭐' }) : null
                       return (
                         <>
                           <span className={`inline-block px-3 py-1 ${colors.bg} ${colors.text} rounded-full text-xs font-semibold uppercase tracking-wide border ${colors.border}`}>
@@ -616,6 +659,12 @@ export default function Portfolio() {
                           <span className={`inline-block px-3 py-1 ${statusColor.bg} ${statusColor.text} rounded-full text-xs font-bold`}>
                             {modalProject.status}
                           </span>
+                          {badgeStyle && (
+                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 ${badgeStyle.bg} ${badgeStyle.text} rounded-full text-xs font-bold`}>
+                              <span>{badgeStyle.icon}</span>
+                              {modalProject.badge}
+                            </span>
+                          )}
                         </>
                       )
                     })()}
