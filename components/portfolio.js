@@ -69,7 +69,7 @@ export default function Portfolio() {
       id: 2,
       type: 'Applied AI',
       title: 'temanJalan',
-      image: '/images/temanjalan.png',
+      image: '/images/temanJalan.png',
       description: 'An AI-powered route mapping application designed to help people with disabilities find the safest and most accessible disability-friendly routes. Winner of the Mini-Hackathon by Google Developer Group on Campus (GDGOC) UGM.',
       fullDescription: 'temanJalan is an innovative accessibility-focused application that leverages artificial intelligence to provide safe and disability-friendly route recommendations. Built with a modern microservices architecture, the app analyzes real-time data to identify the most accessible paths for people with disabilities. The system uses Python-based AI/ML models for route optimization and accessibility scoring, deployed as containerized services using Docker for scalability and maintainability. This project won the Mini-Hackathon organized by Google Developer Group on Campus (GDGOC) at Universitas Gadjah Mada, demonstrating its impact on inclusive technology solutions.',
       techStack: ['Docker', 'Python', 'Express.js', 'Next.js', 'TensorFlow', 'Microservices'],
